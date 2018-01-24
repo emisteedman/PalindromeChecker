@@ -14,16 +14,27 @@ public void setup()
     }
   }
 }
-public boolean palindrome(String word)
-{
-  //your code here
+public boolean palindrome(String word){
+  String b = reverse(noSpaces(word));
+  if(b.equals(noSpaces(word))){
+    return true;
+  }
   return false;
 }
-public String reverse(String str)
-{
-    String sNew = new String();
-    //your code here
-    return sNew;
+
+public String reverse(String str){
+  String a = new String();
+  for(int i = str.length(); i > 0; i--){
+    a = a + str.substring(i-1, i);
+  }
+  return a;
 }
-
-
+public String noSpaces(String sWord){
+  String s = new String();
+  for(int i = 0; i < sWord.length(); i++){
+    if(!sWord.substring(i, i+1).equals(" ") && Character.isLetter(sWord.charAt(i))){
+      s = s + sWord.substring(i, i+1);
+    }
+  }
+  return s.toLowerCase();
+}
